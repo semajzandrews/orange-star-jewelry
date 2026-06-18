@@ -123,9 +123,22 @@ html.reveal-armed .reveal {
 html:not(.reveal-armed) .reveal { opacity: 1; transform: none; }
 .reveal.in { opacity: 1; transform: none; }
 
-/* card lift */
+/* card lift — pointer devices */
 .lift { transition: transform .55s var(--ease-anneal), border-color .55s; }
-.lift:hover { transform: translateY(-5px); border-color: rgba(200,148,59,.4); }
+.zoom-media { will-change: transform; }
+
+@media (hover: hover) and (pointer: fine) {
+  .lift:hover { transform: translateY(-5px); border-color: rgba(200,148,59,.4); }
+}
+
+/* touch devices: hover never fires, so deliver the delight on scroll-into-view
+   (Reveal adds .in) and a tap-down press, so nothing depends on a cursor. */
+@media (hover: none), (pointer: coarse) {
+  .lift.in { border-color: rgba(200,148,59,.32); }
+  .lift.in .zoom-media { transform: scale(1.04); }
+  .lift:active { transform: translateY(-2px); }
+  .lift:active .zoom-media { transform: scale(1.07); }
+}
 
 /* map tint per arsenal */
 .map-frame { position: relative; overflow: hidden; border-radius: 4px; }

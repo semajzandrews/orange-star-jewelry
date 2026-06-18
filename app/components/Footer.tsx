@@ -19,8 +19,9 @@ export default function Footer() {
               <span className="font-display text-[1.15rem]">{site.name}</span>
             </div>
             <p className="max-w-sm text-[0.92rem] leading-relaxed text-bone-2">
-              A working goldsmith&apos;s bench on Main Street in {site.address.city},
-              since {site.foundedYear}. Custom gold and hand repair by {site.craftsman}.
+              Gold, diamonds and custom pieces on Main Street in {site.address.city},
+              since {site.foundedYear}. Sold, made, and repaired by hand by master
+              goldsmith {site.craftsman}.
             </p>
           </div>
 
@@ -47,7 +48,7 @@ export default function Footer() {
               href={site.phoneHref}
               className="mt-4 inline-block rounded-full border border-gold/40 px-4 py-2 text-[0.85rem] text-gold transition-colors hover:bg-gold hover:text-forge"
             >
-              Call the bench
+              Call Orange Star
             </a>
           </div>
         </div>

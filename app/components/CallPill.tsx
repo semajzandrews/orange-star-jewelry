@@ -20,7 +20,7 @@ export default function CallPill() {
           fill="currentColor"
         />
       </svg>
-      <span className="hidden font-medium min-[400px]:inline">Call the bench</span>
+      <span className="hidden font-medium min-[400px]:inline">Call Orange Star</span>
     </a>
   );
 }

@@ -45,8 +45,8 @@ export default function Proof() {
         <Reveal delay={120}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-gold/15">
             <Image
-              src="/img/serv-wrist.jpg"
-              alt="A finished gold piece worn, photographed close on the wrist"
+              src="/img/shop-rings-box.jpg"
+              alt="Three rose-gold diamond rings set in a velvet ring box"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"

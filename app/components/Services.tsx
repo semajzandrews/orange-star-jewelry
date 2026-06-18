@@ -7,8 +7,8 @@ const services = [
     title: "Custom design",
     body:
       "Engagement rings and one-off pieces drawn, modeled, and built to fit the hand they are made for. Bring a sketch, a photo, or just a feeling.",
-    img: "/img/bench-artisan.jpg",
-    imgAlt: "Hands shaping a gold ring on a polishing motor at the bench",
+    img: "/img/shop-rose-ring.jpg",
+    imgAlt: "A diamond halo ring nestled in deep red roses",
   },
   {
     n: "02",
@@ -23,8 +23,8 @@ const services = [
     title: "Stones and resetting",
     body:
       "Loose diamonds tightened, lost stones matched, and heirlooms reset into a new setting that keeps the story and loses the dated look.",
-    img: "/img/bench-polish.jpg",
-    imgAlt: "Close detail of a ring being polished on the wheel",
+    img: "/img/shop-link-bracelet.jpg",
+    imgAlt: "A chunky gold link bracelet on a magazine in warm light",
   },
 ];
 
@@ -32,9 +32,9 @@ export default function Services() {
   return (
     <section id="services" className="mx-auto max-w-[1180px] px-5 py-24 md:px-8 md:py-32">
       <Reveal className="mb-12">
-        <p className="eyebrow mb-3">At the bench</p>
+        <p className="eyebrow mb-3">What we do</p>
         <h2 className="display-tight text-[clamp(2rem,5.5vw,3.4rem)] text-bone">
-          What the torch can do.
+          Buy it, build it, or bring it back to life.
         </h2>
       </Reveal>
 
@@ -51,7 +51,7 @@ export default function Services() {
                 alt={s.imgAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                className="zoom-media object-cover transition-transform duration-700 group-hover:scale-[1.05]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forge/70 to-transparent" />
             </div>

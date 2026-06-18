@@ -3,14 +3,14 @@ import SmoothScroll from "./components/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Orange Star Jewelry · goldsmith on Main Street, Orange NJ since 1997",
+  title: "Orange Star Jewelry · gold, diamonds and custom pieces on Main Street, Orange NJ",
   description:
-    "A working goldsmith's bench on Main Street in Orange, NJ. Custom rings, hand repair, 14k to 22k and platinum, annealed and set by master craftsman Rahim since 1997. Walk in at 283 Main St.",
+    "Beautiful gold, diamonds, chains and hoops you will want to wear, sold and made to order on Main Street in Orange, NJ. 14k to 22k and platinum, set and finished by hand by master goldsmith Rahim since 1997. Visit 283 Main St.",
   metadataBase: new URL("https://orange-star-jewelry.vercel.app"),
   openGraph: {
     title: "Orange Star Jewelry · Orange NJ",
     description:
-      "Custom gold and hand repair at the bench since 1997. 283 Main St, City of Orange, NJ.",
+      "Gold, diamonds and custom pieces worth wearing, sold and made by hand since 1997. 283 Main St, City of Orange, NJ.",
     type: "website",
   },
   icons: { icon: "/favicon.svg" },

@@ -1,38 +1,39 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 
-/* Work from the bench — an offset, non-grid gallery so it reads as a
-   tray of finished pieces, not a product grid. Each photo used once. */
+/* The collection — desirable pieces people come in to buy, shown first.
+   An offset, non-grid gallery so it reads as a curated case, not a stock
+   product grid. Each photo used once. */
 
 const pieces = [
   {
-    src: "/img/piece-solitaire.jpg",
-    alt: "A white-gold diamond solitaire engagement ring resting beside its band",
-    label: "Engagement, set by hand",
+    src: "/img/worn-earring.jpg",
+    alt: "A woman wearing a gold chandelier earring, lit warm against deep red",
+    label: "Worn, the way it should be",
     span: "md:col-span-7 aspect-[16/11]",
   },
   {
-    src: "/img/piece-twotone.jpg",
-    alt: "A two-tone gold ring with two diamonds on a dark stone surface",
-    label: "Two-tone custom",
+    src: "/img/shop-gold-set.jpg",
+    alt: "A set of 22k gold diamond bangles, a chain and a ring on white",
+    label: "Gold sets, 22k",
     span: "md:col-span-5 aspect-[4/5]",
   },
   {
-    src: "/img/piece-rose.jpg",
-    alt: "A rose-gold ring detail",
-    label: "Rose gold",
+    src: "/img/shop-engagement.jpg",
+    alt: "An emerald-cut diamond engagement ring in a yellow-gold pave band",
+    label: "Engagement",
     span: "md:col-span-4 aspect-[4/5]",
   },
   {
-    src: "/img/piece-wreath.jpg",
-    alt: "A diamond wreath-style ring",
-    label: "Wreath halo",
-    span: "md:col-span-4 aspect-[4/5]",
-  },
-  {
-    src: "/img/piece-hoops.jpg",
-    alt: "A pair of gold hoop earrings",
+    src: "/img/shop-star-hoops.jpg",
+    alt: "A pair of gold star-charm hoop earrings on blush silk",
     label: "Gold hoops",
+    span: "md:col-span-4 aspect-[4/5]",
+  },
+  {
+    src: "/img/shop-bar-pendant.jpg",
+    alt: "A gold bar pendant on a box chain beside a gold cuff",
+    label: "Chains and pendants",
     span: "md:col-span-4 aspect-[4/5]",
   },
 ];
@@ -43,14 +44,15 @@ export default function Work() {
       <div className="mx-auto max-w-[1180px] px-5 md:px-8">
         <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="eyebrow mb-3">Work from the bench</p>
+            <p className="eyebrow mb-3">The collection</p>
             <h2 className="display-tight text-[clamp(2rem,5.5vw,3.4rem)] text-bone">
-              Made for one finger, one wrist, one story.
+              Pieces you came in to find.
             </h2>
           </div>
           <p className="max-w-xs text-[0.92rem] text-bone-2">
-            Custom design and repair across 14k, 18k, 22k and platinum. Bring an
-            idea, a photo, or an heirloom to remake.
+            Rings, chains, hoops and diamonds in 14k, 18k, 22k and platinum,
+            ready to take home or made to order. Want something of your own?
+            Bring an idea or a photo.
           </p>
         </Reveal>
 
@@ -66,7 +68,7 @@ export default function Work() {
                 alt={p.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                className="zoom-media object-cover transition-transform duration-700 group-hover:scale-[1.05]"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forge/85 via-transparent to-transparent" />
               <span className="absolute bottom-3 left-4 font-display text-[0.95rem] italic text-bone">

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Orange Star Jewelry, goldsmith's bench on Main Street, Orange NJ since 1997";
+  "Orange Star Jewelry, gold and diamonds on Main Street, Orange NJ since 1997";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -52,15 +52,15 @@ export default function OG() {
               color: "transparent",
             }}
           >
-            Gold takes its shape
+            Gold worth
           </div>
           <div style={{ fontSize: 88, lineHeight: 1.05, color: "#F3EBDD" }}>
-            by hand.
+            wearing.
           </div>
         </div>
 
         <div style={{ fontSize: 28, color: "#CDBEA8" }}>
-          Custom rings, hand repair, and honest metal since 1997 · 283 Main St
+          Gold, diamonds and custom pieces, made and sold by hand since 1997 · 283 Main St
         </div>
       </div>
     ),

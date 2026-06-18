@@ -111,21 +111,21 @@ export default function Hero() {
 
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden pt-16">
-      {/* the bench, photographed honestly, behind the word */}
+      {/* a piece worth wanting, worn — the desire behind the door */}
       <div className="absolute inset-0">
         <Image
-          src="/img/hero-torch.jpg"
-          alt="A goldsmith's hand annealing a gold ring with a torch on a soldering block at the Orange Star bench"
+          src="/img/hero-radiant.jpg"
+          alt="A woman smiling, wearing a gold pendant necklace and a diamond stud earring, the kind of piece made and sold at Orange Star"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[60%_40%] opacity-[0.42]"
+          className="object-cover object-[62%_22%] opacity-95"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 90% at 70% 30%, transparent, rgba(22,16,12,0.55) 55%, rgba(22,16,12,0.95) 100%), linear-gradient(180deg, rgba(22,16,12,0.45), rgba(22,16,12,0.2) 40%, rgba(22,16,12,0.92))",
+              "linear-gradient(90deg, rgba(22,16,12,0.95) 8%, rgba(22,16,12,0.78) 34%, rgba(22,16,12,0.28) 62%, rgba(22,16,12,0.08) 100%), linear-gradient(180deg, rgba(22,16,12,0.5), transparent 28%, rgba(22,16,12,0.16) 58%, rgba(22,16,12,0.9))",
           }}
         />
       </div>
@@ -133,42 +133,44 @@ export default function Hero() {
       <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-[1180px] flex-col justify-center px-5 pb-24 md:px-8">
         <p className="eyebrow mb-5">On Main Street since 1997</p>
 
-        {/* the torch-heat wordmark */}
+        {/* the torch-heat wordmark — now leads with the desire to own it */}
         <div ref={stageRef} className="torch-stage select-none">
           <div
             ref={glowRef}
             className="torch-glow idle-breathe"
             aria-hidden
           />
-          <h1 className="display-tight font-display text-[clamp(3.1rem,13vw,9.5rem)]">
+          <h1 className="display-tight font-display text-[clamp(3rem,12vw,9rem)]">
             <span className="relative inline-block">
-              <span className="metal-word">Gold takes its shape</span>
+              <span className="metal-word">Gold worth</span>
               <span ref={hotRef} className="metal-word-hot" aria-hidden>
-                Gold takes its shape
+                Gold worth
               </span>
             </span>
             <br />
-            <span className="text-bone/95">by hand.</span>
+            <span className="text-bone/95">wearing.</span>
           </h1>
         </div>
 
         <p className="lede mt-7 max-w-xl text-[1.05rem] text-bone-2">
-          A working goldsmith&apos;s bench, not a glass case. Custom rings, hand
-          repair, and honest metal worked by master craftsman {site.craftsman} since 1997.
+          Rings, chains, hoops and diamonds you will actually want to wear,
+          chosen or made to order on Main Street. Every piece set and finished
+          by hand by master goldsmith {site.craftsman}, the same shop families
+          have trusted since 1997.
         </p>
 
         <div className="mt-9 flex flex-wrap items-center gap-4">
           <a
-            href={site.phoneHref}
+            href="#work"
             className="rounded-full bg-ember px-6 py-3 text-[0.95rem] font-medium text-bone transition-transform hover:-translate-y-0.5"
           >
-            Call the bench
+            See the collection
           </a>
           <a
-            href="#work"
+            href={site.phoneHref}
             className="text-[0.9rem] text-bone-2 underline-offset-4 transition-colors hover:text-gold hover:underline"
           >
-            See work from the bench
+            Call Orange Star
           </a>
         </div>
 

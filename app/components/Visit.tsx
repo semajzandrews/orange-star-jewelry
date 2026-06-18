@@ -5,9 +5,9 @@ export default function Visit() {
   return (
     <section id="visit" className="mx-auto max-w-[1180px] px-5 py-24 md:px-8 md:py-32">
       <Reveal className="mb-12">
-        <p className="eyebrow mb-3">Find the bench</p>
+        <p className="eyebrow mb-3">Visit the shop</p>
         <h2 className="display-tight text-[clamp(2rem,5.5vw,3.4rem)] text-bone">
-          Walk in. The torch is on Main Street.
+          Come see it in person on Main Street.
         </h2>
       </Reveal>
 

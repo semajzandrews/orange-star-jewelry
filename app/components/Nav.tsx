@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { site } from "../../lib/site";
 
 const links = [
-  { href: "#bench", label: "The Bench" },
-  { href: "#work", label: "Work" },
+  { href: "#work", label: "Collection" },
+  { href: "#bench", label: "Our Craft" },
   { href: "#services", label: "Services" },
   { href: "#visit", label: "Visit" },
 ];
