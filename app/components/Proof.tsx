@@ -1,75 +1,60 @@
-"use client";
-
-import { motion } from "motion/react";
-
-const REVIEWS = [
-  {
-    q: "I have been doing business with Orange Star for over twenty years. They always deliver amazing pieces.",
-    a: "Google review",
-  },
-  {
-    q: "Rahim customized my engagement ring and turned my idea into something breathtaking. Kind, patient and so knowledgeable.",
-    a: "Google review",
-  },
-  {
-    q: "Honest, reliable, and the repair was done right and on time. The staff are friendly and they treat you like family.",
-    a: "Google review",
-  },
-];
-
-export default function Proof() {
-  return (
-    <section className="relative overflow-hidden bg-forge-2 py-24 sm:py-32">
-      {/* faint ember glow */}
-      <div className="heat-bloom absolute inset-0 opacity-40" />
-      <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
-        <div className="mb-14 flex flex-wrap items-end justify-between gap-4">
-          <h2 className="display-tight max-w-xl font-display text-[clamp(2rem,5vw,3.6rem)] font-600 text-bone">
-            Twenty years of
-            <br />
-            people who came back.
-          </h2>
-          <div className="flex items-center gap-3">
-            <Stars />
-            <span className="tabnum text-[15px] text-bone-2">4.8 · 39 reviews</span>
-          </div>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {REVIEWS.map((r, i) => (
-            <motion.blockquote
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7, delay: i * 0.08 }}
-              className="flex flex-col justify-between rounded-sm border border-[var(--ash)] bg-forge p-7"
-            >
-              <p className="font-display text-[19px] font-400 leading-snug text-bone">
-                &ldquo;{r.q}&rdquo;
-              </p>
-              <footer className="mt-6 text-[12px] uppercase tracking-[0.14em] text-gold-2">
-                — {r.a}
-              </footer>
-            </motion.blockquote>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+import Image from "next/image";
+import Reveal from "./Reveal";
+import { site, voice } from "../../lib/site";
 
 function Stars() {
   return (
-    <span className="flex gap-0.5">
+    <span className="inline-flex gap-0.5" aria-hidden>
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} viewBox="0 0 24 24" className="h-4 w-4" aria-hidden>
-          <path
-            d="M12 2.5l2.7 6.1 6.6.5-5 4.3 1.6 6.5L12 16.9 6.1 20.4l1.6-6.5-5-4.3 6.6-.5L12 2.5z"
-            fill="var(--gold-2)"
-          />
+        <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)">
+          <path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17.8 5.7 21.5l1.7-7L2 9.8l7.1-.6z" />
         </svg>
       ))}
     </span>
+  );
+}
+
+export default function Proof() {
+  return (
+    <section className="relative overflow-hidden bg-forge-2/60 py-24 md:py-28">
+      <div className="mx-auto grid max-w-[1180px] items-center gap-12 px-5 md:grid-cols-2 md:gap-16 md:px-8">
+        <Reveal>
+          <div className="mb-5 flex items-center gap-3">
+            <Stars />
+            <span className="tabnum text-[0.95rem] text-bone-2">
+              {site.rating.toFixed(1)} from {site.reviewCount} reviews
+            </span>
+          </div>
+          <blockquote className="display-tight font-display text-[clamp(1.7rem,4.2vw,2.7rem)] italic text-bone">
+            &ldquo;{voice.sourced}&rdquo;
+          </blockquote>
+          <p className="mt-5 text-[0.85rem] text-gold">{voice.sourcedAttribution}</p>
+
+          <div className="mt-9 flex flex-wrap gap-2.5">
+            {site.access.map((a) => (
+              <span
+                key={a}
+                className="rounded-full border border-bone/12 px-3.5 py-1.5 text-[0.8rem] text-bone-2"
+              >
+                {a}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-gold/15">
+            <Image
+              src="/img/serv-wrist.jpg"
+              alt="A finished gold piece worn, photographed close on the wrist"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-forge/40 to-transparent" />
+          </div>
+        </Reveal>
+      </div>
+    </section>
   );
 }

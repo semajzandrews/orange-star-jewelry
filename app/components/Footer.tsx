@@ -1,63 +1,72 @@
+import { site } from "../../lib/site";
+
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--ash)] bg-forge px-5 pb-10 pt-16 sm:px-8">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="gold-seam mb-12" />
-
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" aria-hidden>
+    <footer className="border-t border-gold/15 bg-forge px-5 pt-16 pb-28 md:px-8 md:pb-16">
+      <div className="mx-auto max-w-[1180px]">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <div className="mb-4 flex items-center gap-2.5">
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
                 <path
-                  d="M12 2.5l2.7 6.1 6.6.5-5 4.3 1.6 6.5L12 16.9 6.1 20.4l1.6-6.5-5-4.3 6.6-.5L12 2.5z"
-                  fill="var(--ember)"
+                  d="M12 1.6l2.7 6.2 6.7.5-5.1 4.4 1.6 6.6L12 20l-5.9 3.7 1.6-6.6L2.6 8.3l6.7-.5z"
+                  fill="none"
                   stroke="var(--gold)"
-                  strokeWidth="0.8"
+                  strokeWidth="1.3"
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="font-display text-xl font-600 text-bone">Orange Star Jewelry</span>
+              <span className="font-display text-[1.15rem]">{site.name}</span>
             </div>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-bone-2">
-              A working goldsmith&apos;s bench on Main Street in Orange, New Jersey.
-              Custom rings, hand repairs and fine gold since 1997.
+            <p className="max-w-sm text-[0.92rem] leading-relaxed text-bone-2">
+              A working goldsmith&apos;s bench on Main Street in {site.address.city},
+              since {site.foundedYear}. Custom gold and hand repair by {site.craftsman}.
             </p>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="mb-4 text-[12px] font-600 uppercase tracking-[0.16em] text-gold-2">Find Us</h4>
-            <address className="space-y-2 text-[15px] not-italic text-bone-2">
-              <p>283 Main Street<br />Orange, NJ 07050</p>
-              <p>
-                <a href="tel:+19736767400" className="transition hover:text-bone">(973) 676-7400</a>
-              </p>
-            </address>
+            <p className="mb-3 text-[0.76rem] uppercase tracking-wide text-bone-2/70">
+              Visit
+            </p>
+            <p className="text-bone">{site.address.line}</p>
+            <p className="text-bone-2">
+              {site.address.city}, {site.address.state} {site.address.zip}
+            </p>
+            <a href={site.phoneHref} className="mt-2 inline-block text-gold hover:underline">
+              {site.phoneDisplay}
+            </a>
           </div>
 
-          {/* Hours */}
           <div>
-            <h4 className="mb-4 text-[12px] font-600 uppercase tracking-[0.16em] text-gold-2">Hours</h4>
-            <ul className="space-y-1.5 text-[15px] text-bone-2">
-              <li className="flex justify-between gap-4"><span>Mon – Sat</span><span className="tabnum">10 AM – 7 PM</span></li>
-              <li className="flex justify-between gap-4"><span>Sunday</span><span>Closed</span></li>
-            </ul>
+            <p className="mb-3 text-[0.76rem] uppercase tracking-wide text-bone-2/70">
+              Hours
+            </p>
+            <p className="text-bone-2">{site.hoursSummary}</p>
+            <p className="text-bone-2">Closed Sunday</p>
+            <a
+              href={site.phoneHref}
+              className="mt-4 inline-block rounded-full border border-gold/40 px-4 py-2 text-[0.85rem] text-gold transition-colors hover:bg-gold hover:text-forge"
+            >
+              Call the bench
+            </a>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-[var(--ash)] pt-6 sm:flex-row sm:items-center">
-          <p className="text-[13px] text-bone-2">
-            © {new Date().getFullYear()} Orange Star Jewelry. Main Street, Orange NJ.
+        <div className="gold-seam my-10" />
+
+        <div className="flex flex-col items-start justify-between gap-3 text-[0.78rem] text-bone-2/70 sm:flex-row sm:items-center">
+          <p className="tabnum">
+            © {new Date().getFullYear()} {site.legalName} · {site.address.full}
           </p>
+          {/* bysemaj maker's mark — styled to this site's gold/engraved voice */}
           <a
             href="https://bysemaj.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 text-[13px] text-bone-2 transition hover:text-bone"
+            className="group inline-flex items-center gap-1.5 font-display italic transition-colors hover:text-gold"
           >
-            <span>Built by</span>
-            <span className="font-display font-500 text-gold-2 transition group-hover:text-gold">bysemaj.com</span>
+            <span className="text-bone-2/60">made at the bench by</span>
+            <span className="text-gold/80 group-hover:text-gold">bysemaj.com</span>
           </a>
         </div>
       </div>

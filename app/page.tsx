@@ -1,8 +1,7 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
 import Bench from "./components/Bench";
-import Collection from "./components/Collection";
+import Work from "./components/Work";
 import Services from "./components/Services";
 import Proof from "./components/Proof";
 import Visit from "./components/Visit";
@@ -14,9 +13,8 @@ export default function Home() {
     <main className="relative">
       <Nav />
       <Hero />
-      <Marquee />
       <Bench />
-      <Collection />
+      <Work />
       <Services />
       <Proof />
       <Visit />

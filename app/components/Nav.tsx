@@ -1,20 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { site } from "../../lib/site";
 
-const LINKS = [
-  { label: "The Bench", href: "#bench" },
-  { label: "Pieces", href: "#pieces" },
-  { label: "Services", href: "#services" },
-  { label: "Visit", href: "#visit" },
+const links = [
+  { href: "#bench", label: "The Bench" },
+  { href: "#work", label: "Work" },
+  { href: "#services", label: "Services" },
+  { href: "#visit", label: "Visit" },
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
+  const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setSolid(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -22,95 +23,94 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-forge/85 backdrop-blur-md border-b border-[var(--ash)]"
-          : "bg-transparent border-b border-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-colors duration-500"
+      style={{
+        background: solid
+          ? "linear-gradient(180deg, rgba(22,16,12,0.92), rgba(22,16,12,0.78))"
+          : "transparent",
+        backdropFilter: solid ? "blur(8px)" : "none",
+        borderBottom: solid
+          ? "1px solid rgba(200,148,59,0.16)"
+          : "1px solid transparent",
+      }}
     >
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 sm:px-8">
-        {/* Wordmark */}
-        <a href="#top" className="group flex items-center gap-2.5">
-          <span className="relative inline-flex h-7 w-7 items-center justify-center">
-            <Star />
-          </span>
-          <span className="font-display text-[17px] font-600 leading-none tracking-tight text-bone">
+      <nav className="mx-auto flex max-w-[1180px] items-center justify-between px-5 py-3.5 md:px-8">
+        {/* brand mark — engraved hallmark style */}
+        <a href="#top" className="group flex items-center gap-2.5" aria-label="Orange Star Jewelry, home">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden className="shrink-0">
+            <path
+              d="M12 1.6l2.7 6.2 6.7.5-5.1 4.4 1.6 6.6L12 20l-5.9 3.7 1.6-6.6L2.6 8.3l6.7-.5z"
+              fill="none"
+              stroke="var(--gold)"
+              strokeWidth="1.3"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span className="font-display text-[1.05rem] leading-none tracking-tight">
             Orange Star
           </span>
         </a>
 
-        {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
-          {LINKS.map((l) => (
+          {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[13px] font-500 uppercase tracking-[0.14em] text-bone-2 transition-colors hover:text-bone"
+              className="text-[0.86rem] text-bone-2 transition-colors hover:text-gold"
             >
               {l.label}
             </a>
           ))}
           <a
-            href="tel:+19736767400"
-            className="rounded-full border border-[var(--gold)] px-5 py-2 text-[13px] font-500 uppercase tracking-[0.12em] text-gold-2 transition-all hover:bg-[var(--gold)] hover:text-forge"
+            href={site.phoneHref}
+            className="rounded-full border border-gold/40 px-4 py-1.5 text-[0.82rem] text-gold transition-colors hover:bg-gold hover:text-forge"
           >
-            (973) 676-7400
+            {site.phoneDisplay}
           </a>
         </div>
 
-        {/* Mobile toggle */}
+        {/* mobile toggle */}
         <button
-          aria-label="Menu"
+          className="md:hidden text-bone-2"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 items-center justify-center md:hidden"
         >
-          <div className="space-y-[5px]">
-            <span className={`block h-[1.5px] w-6 bg-bone transition-all ${open ? "translate-y-[6.5px] rotate-45" : ""}`} />
-            <span className={`block h-[1.5px] w-6 bg-bone transition-all ${open ? "opacity-0" : ""}`} />
-            <span className={`block h-[1.5px] w-6 bg-bone transition-all ${open ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
-          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+            {open ? (
+              <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.5" />
+            ) : (
+              <>
+                <path d="M4 8h16M4 16h16" stroke="currentColor" strokeWidth="1.5" />
+              </>
+            )}
+          </svg>
         </button>
       </nav>
 
-      {/* Mobile sheet */}
-      <div
-        className={`overflow-hidden border-t border-[var(--ash)] bg-forge/95 backdrop-blur-md transition-all duration-500 md:hidden ${
-          open ? "max-h-96" : "max-h-0 border-transparent"
-        }`}
-      >
-        <div className="flex flex-col gap-1 px-5 py-4">
-          {LINKS.map((l) => (
+      {/* mobile drawer */}
+      {open && (
+        <div className="md:hidden border-t border-gold/15 bg-forge/95 px-5 py-4 backdrop-blur">
+          <div className="flex flex-col gap-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="font-display text-lg text-bone"
+              >
+                {l.label}
+              </a>
+            ))}
             <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="border-b border-[var(--ash)] py-3 font-display text-2xl text-bone"
+              href={site.phoneHref}
+              className="mt-1 inline-block rounded-full border border-gold/40 px-4 py-2 text-center text-gold"
             >
-              {l.label}
+              Call {site.phoneDisplay}
             </a>
-          ))}
-          <a
-            href="tel:+19736767400"
-            className="mt-3 rounded-full bg-ember px-5 py-3 text-center text-[14px] font-600 uppercase tracking-[0.1em] text-bone"
-          >
-            Call (973) 676-7400
-          </a>
+          </div>
         </div>
-      </div>
+      )}
     </header>
-  );
-}
-
-function Star() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" aria-hidden>
-      <path
-        d="M12 2.5l2.7 6.1 6.6.5-5 4.3 1.6 6.5L12 16.9 6.1 20.4l1.6-6.5-5-4.3 6.6-.5L12 2.5z"
-        fill="var(--ember)"
-        stroke="var(--gold)"
-        strokeWidth="0.8"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
